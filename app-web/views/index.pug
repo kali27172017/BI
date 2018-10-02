@@ -1,0 +1,46 @@
+doctype html
+head
+    title Application Upload
+    link(href="http://localhost:8000/css/index.css" rel="stylesheet" type="text/css")
+header.header
+    h1 Aplicacion BI en AWS
+.formBi    
+ .ui.placeholder.segment
+  .ui.two.column.very.relaxed.stackable.grid
+    .column
+      .ui.form
+        form(method="post" action="login" id="formLogin")
+          .field
+            label Usuario
+            .ui.left.icon.input
+              input(type="text" placeholder="Usuario" name="usuario" id="usuario" required)
+              i.user.icon
+          .field
+            label Clave
+            .ui.left.icon.input
+              input(type="password" placeholder="Clave" name="clave" id="clave" required)
+              i.lock.icon
+            input(type="submit" value="Ingresar" class="form-login")
+    .column
+      .ui.form
+        form
+        .field
+          label Usuario
+          .ui.left.icon.input
+            input(type="text" placeholder="Usuario")
+            i.user.icon
+        .field
+          label Clave
+          .ui.left.icon.input
+            input(type="password" placeholder="Clave")
+            i.lock.icon
+        .ui.blue.submit.button Registrate
+.ui.vertical.divider
+    | O
+
+
+
+    script(src="http://localhost:8000/js/index.js")
+
+
+
