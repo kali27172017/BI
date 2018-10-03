@@ -11,11 +11,13 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/login", (req, res) => {
+app.post("/", (req, res) => {
   let user = req.body.usuario;
   let clave = req.body.clave;
-
   if (validaLogin(user, clave)) {
+    res.redirect("/dash");
+  } else {
+    res.redirect("/");
   }
 });
 
@@ -26,8 +28,9 @@ app.get("/dash", (req, res) => {
 function validaLogin(user, clave) {
   if (user == "rejore" && clave == "12345") {
     return true;
+  } else {
+    return false;
   }
-  return false;
 }
 
 app.listen(4000);

@@ -7,23 +7,30 @@ let login = document.getElementById("formLogin");
 let usuario = document.getElementById("usuario");
 let clave = document.getElementById("clave");
 
-let loginForm = e => {
+/*let loginForm = e => {
   e.preventDefault();
   ajaxLogin(usuario.value, clave.value);
-};
+};*/
 
-let ajaxLogin = (usuario, clave) => {
+/*let ajaxLogin = (usuario, clave) => {
   $.ajax({
     method: "POST",
     url: "http://localhost:4000/login",
     data: { usuario: usuario, clave: clave }
   })
     .done(msg => {
-      //console.log(msg);
+      console.log(msg);
+      redirectLocation(msg);
     })
     .fail(err => {
       console.log(err);
     });
 };
 
-login.addEventListener("submit", loginForm);
+let redirectLocation = bandera => {
+  if (bandera) {
+    location.href = "http://localhost:4000/dash";
+  }
+};*/
+
+//login.addEventListener("submit", loginForm);
