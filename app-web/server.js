@@ -1,19 +1,33 @@
 let express = require("express");
 let bodyParser = require("body-parser");
+let session = require("express-session");
 let app = express();
+let user, clave;
 
 app.set("view engine", "pug");
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  })
+);
 
 app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/filter", (req, res) => {
+  res.render("dashboardFilter");
+});
+
 app.post("/", (req, res) => {
-  let user = req.body.usuario;
-  let clave = req.body.clave;
+  user = req.body.usuario;
+  clave = req.body.clave;
   if (validaLogin(user, clave)) {
     res.redirect("/dash");
   } else {
@@ -22,7 +36,9 @@ app.post("/", (req, res) => {
 });
 
 app.get("/dash", (req, res) => {
-  res.render("dashboard");
+  req.session.user = user;
+  req.session.clave = clave;
+  res.render("dashboard", { usuario: req.session.user });
 });
 
 function validaLogin(user, clave) {

@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content
+     form.form_search
+      ui.right.aligned.category.search
+        .ui.icon
+          select.ui.dropdown()
+            option(value="")  Tipo Archivo
+            option(value="png") PNG
+            option(value="jpg") JGP
+            option(value="docx") DOCX
+            option(value="xls")  XLS
+          input(type="submit" value="Buscar")
+          
+        

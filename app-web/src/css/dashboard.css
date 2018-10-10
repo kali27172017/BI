@@ -1,3 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
 body {
-  background: pink;
+  background: #f9ffce;
+}
+
+.headerDash {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  grid-template-rows: 50px;
+  align-items: center;
+  background: #273141;
+}
+
+.header_logo {
+  height: 20px;
+  font-size: 40px;
+  color: white;
+  margin-left: 0.5em;
+}
+
+.header_title {
+  color: white !important;
+  font-family: "Roboto", sans-serif !important;
+  margin-left: 20px;
+}
+
+.header_link {
+  color: color;
+  font-size: 20px;
+  margin-left: 30px;
+  vertical-align: middle;
+}
+
+.header_logout {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  z-index: 2;
+  top: 58px;
+  left: 67%;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 1em;
+  background: white;
+}
+
+.header_logout a {
+  color: red;
+  font-family: "Roboto";
+}
+
+.main {
+  height: 100%;
+}
+
+.contentMenu {
+  display: grid;
+  grid-template-columns: 450px 200px;
+  height: 90%;
+  vertical-align: middle;
+}
+
+.menu {
+  width: 400px;
+  height: 650px;
+}
+
+.asideLeft {
+  border: 2px dashed #bbb;
+  border-radius: 5px;
+  padding: 3px;
+  text-align: center;
+  font: 20pt bold "Vollkorn";
+  color: #bbb;
+  height: 350px;
+  width: 350px;
+  align-self: center;
+}
+
+.asideLeftForm {
+  margin-top: 310px;
+}
+
+.asideLeftDrapDrog {
+  height: 340px;
+}
+
+.asideLeftForm input[type="file"] {
+  color: gray;
+}
+
+.form_search {
+  height: 70px;
+  width: 350px;
+  margin-top: 40px;
+}
+
+.form_search input[type="submit"] {
+  color: white;
+  background: #273d4a;
+  padding: 0.7em 5em;
+  font-family: "Roboto";
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  border-radius: 3px;
+}
+
+/*
+   Helpers
+*/
+
+.visible {
+  display: none;
+}
+
+.overlay {
+  transition: opacity 0.5s;
+  opacity: 0.9;
+  filter: none;
+  z-index: 5px;
+  visibility: visible;
+  background: gray;
 }
