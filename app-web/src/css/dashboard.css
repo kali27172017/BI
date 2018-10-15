@@ -56,7 +56,7 @@ body {
 
 .contentMenu {
   display: grid;
-  grid-template-columns: 450px 200px;
+  grid-template-columns: 430px 300px;
   height: 90%;
   vertical-align: middle;
 }
@@ -71,11 +71,12 @@ body {
   border-radius: 5px;
   padding: 3px;
   text-align: center;
-  font: 20pt bold "Vollkorn";
+  font: 20px bold "Vollkorn";
   color: #bbb;
-  height: 350px;
+  height: 300px;
   width: 350px;
-  align-self: center;
+  margin-top: 50px;
+  box-sizing: border-box;
 }
 
 .asideLeftForm {
@@ -83,7 +84,7 @@ body {
 }
 
 .asideLeftDrapDrog {
-  height: 340px;
+  height: 360px;
 }
 
 .asideLeftForm input[type="file"] {
@@ -107,6 +108,33 @@ body {
   border-radius: 3px;
 }
 
+.files {
+  position: fixed;
+  top: 410px;
+  right: 380px;
+  color: #253c49;
+  font-weight: bold;
+  border: 1px solid #253c49;
+  width: 260px;
+  padding: 1em 0.5em;
+  border-radius: 10px;
+}
+
+.formImages {
+  position: fixed;
+  top: 420px;
+  margin-left: 210px;
+}
+
+.formImages input[type="submit"] {
+  background: #00c282;
+  font-family: "Roboto";
+  color: white;
+  outline: none;
+  padding: 0.5em 1.2em;
+  border: 0;
+}
+
 /*
    Helpers
 */
@@ -122,4 +150,8 @@ body {
   z-index: 5px;
   visibility: visible;
   background: gray;
+}
+
+.span {
+  margin: 0 2px;
 }

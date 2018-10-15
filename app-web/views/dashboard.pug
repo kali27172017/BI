@@ -2,8 +2,13 @@ extends layout.pug
 
 block content
         .asideLeft
-          .asideLeftDrapDrog#drop_zone  O Arrastra tus archivos Aqui
-          output#list
+          output#list.asideLeftDrapDrog
+          form(method="post" id="formImages" class="formImages")
+            input#files.files(type='file' name="files[]" multiple="")
+            input(type='submit' value="Subir Archivos")
+
+         
+        
          
         
 

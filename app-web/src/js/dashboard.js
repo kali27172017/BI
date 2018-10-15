@@ -4,7 +4,9 @@ import "../css/dashboard.css";
 let logout = document.getElementById("logout");
 let contentLogout = document.getElementById("contentLogout");
 let main = document.getElementById("main");
-let dropZone = document.getElementById("drop_zone");
+let InputFile = document.getElementById("files");
+let listaFiles = document.getElementById("list");
+let reader = new FileReader();
 
 let displayLogout = e => {
   e.preventDefault();
@@ -12,24 +14,37 @@ let displayLogout = e => {
   main.classList.toggle("overlay");
 };
 
-let handleDrop = evt => {
-  evt.stopPropagation();
-  evt.preventDefault();
+let handleSelectFile = evt => {
+  let extension = detectedExtension(InputFile.files[0]);
 
-  let files = evt.dataTransfer.files;
-  console.log(files);
+  if (extension == "png") {
+    extensionJpg(reader, InputFile.files[0]);
+  }
 };
 
-let handleDragOver = evt => {
-  console.log("File(s) in drop zone");
-  evt.stopPropagation();
-  evt.preventDefault();
-  evt.dataTransfer.dropEffect = "move";
+let detectedExtension = file => {
+  let nameFile = file.name;
+  let ext = nameFile.substr(nameFile.indexOf(".") + 1, nameFile.length - 1);
+  return ext;
+};
+
+let extensionJpg = (reader, f) => {
+  let image = ` <img src=:src: title=:title: width="80px" height="70px"/>`;
+  reader.onload = (function(file) {
+    return function(e) {
+      let span = document.createElement("span");
+      span.classList.add("span");
+      span.innerHTML = image
+        .replace(":src:", e.target.result)
+        .replace(":title:", file.name);
+      listaFiles.insertBefore(span, null);
+    };
+  })(f);
+  reader.readAsDataURL(f);
 };
 
 /*
 Eventos
 */
 logout.addEventListener("click", displayLogout);
-dropZone.addEventListener("dragover", handleDragOver);
-dropZone.addEventListener("drop", handleDrop);
+InputFile.addEventListener("change", handleSelectFile);
